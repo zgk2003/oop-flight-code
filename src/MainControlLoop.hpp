@@ -49,6 +49,7 @@ protected:
 public:
     MainControlLoop();
     void execute() override;
+    int start_time;
 };
 
 #endif

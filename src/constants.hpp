@@ -426,6 +426,10 @@ namespace constants
 
         constexpr int STBXYpin = 9;
         constexpr int STBZpin = 27;
+
+        constexpr int xtorqorder = 0;
+        constexpr int ytorqorder = 0;
+        constexpr int ztorqorder = 0;
     }
     namespace battery
     {
@@ -437,8 +441,6 @@ namespace constants
         constexpr int resolution = 1023;
         constexpr int r1 = 4700;
         constexpr int r2 = 10000;
-
-
     }
     namespace fault
     {

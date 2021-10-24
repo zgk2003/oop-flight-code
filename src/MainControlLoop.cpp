@@ -22,34 +22,56 @@ temperature_control_task(constants::timecontrol::temperature_control_task_offset
 mission_manager(constants::timecontrol::mission_manager_offset)
 {
     delay(1000);
-    MissionManager::transition_to_initialization();    
+    pinMode(27, OUTPUT);
+    pinMode(28, OUTPUT);
+    pinMode(29, OUTPUT);
+    start_time = millis();
+
 }
 
 void MainControlLoop::execute()
 {
-    sfr::fault::fault_1 = 0;
-    sfr::fault::fault_2 = 0;
-    sfr::fault::fault_3 = 0;
+    
 
-    clock_manager.execute();
+    start_time = millis();
 
-    //acs_monitor.execute_on_time();
-    battery_monitor.execute_on_time();
-    button_monitor.execute_on_time();
-    camera_report_monitor.execute_on_time();
-    command_monitor.execute_on_time();
-    current_monitor.execute_on_time();
-    fault_monitor.execute_on_time();
-    imu_monitor.execute_on_time();
-    normal_report_monitor.execute_on_time();
-    photoresistor_monitor.execute_on_time();
-    temperature_monitor.execute_on_time();
+    while(millis()-start_time < 3){
+        Serial.print(millis());
+        Serial.print(",");
+        Serial.print("ON");
+        Serial.print(",");
+        Serial.print(sfr::imu::mag_x_average);
+        Serial.print(",");
+        Serial.print(sfr::imu::mag_y_average);
+        Serial.print(",");
+        Serial.println(sfr::imu::mag_z_average);
 
-    //acs_control_task.execute_on_time();
-    burnwire_control_task.execute_on_time();
-    camera_control_task.execute_on_time();
-    rockblock_control_task.execute_on_time();
-    temperature_control_task.execute_on_time();
+        imu_monitor.execute();
+        digitalWrite(27, HIGH);
+        digitalWrite(28, LOW);
+        digitalWrite(29, HIGH);
+        analogWrite(30, 255);
+    }
 
-    mission_manager.execute_on_time();
+    start_time = millis();
+
+    while(millis()-start_time < 3){
+        Serial.print(millis());
+        Serial.print(",");
+        Serial.print("OFF");
+        Serial.print(",");
+        Serial.print(sfr::imu::mag_x_average);
+        Serial.print(",");
+        Serial.print(sfr::imu::mag_y_average);
+        Serial.print(",");
+        Serial.println(sfr::imu::mag_z_average);
+
+        imu_monitor.execute();
+        digitalWrite(27, HIGH);
+        digitalWrite(28, LOW);
+        digitalWrite(29, LOW);
+        analogWrite(30, 0);
+    }
+
+
 }

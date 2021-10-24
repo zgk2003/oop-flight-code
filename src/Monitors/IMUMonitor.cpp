@@ -115,12 +115,12 @@ void IMUMonitor::execute()
     sfr::imu::gyro_z_average = gyro_z_sum / sfr::imu::gyro_z_buffer.size();
 
     #ifdef VERBOSE
-    Serial.print("Mag: "); Serial.print(sfr::imu::mag_x_average); Serial.print(",");
-    Serial.print(sfr::imu::mag_y_average); Serial.print(",");
-    Serial.print(sfr::imu::mag_z_average); Serial.println(" Gauss");
-    Serial.print("Gyro: "); Serial.print(sfr::imu::gyro_x_average); Serial.print(",");
-    Serial.print(sfr::imu::gyro_y_average); Serial.print(",");
-    Serial.print(sfr::imu::gyro_z_average); Serial.println(" deg/s");
+        //Serial.print(sfr::imu::mag_x_average); Serial.print(",");
+        //Serial.print(sfr::imu::mag_y_average); Serial.print(",");
+        //Serial.print(sfr::imu::mag_z_average); Serial.println(" Gauss");
+        //Serial.print("Gyro: "); Serial.print(sfr::imu::gyro_x_average); Serial.print(",");
+        //Serial.print(sfr::imu::gyro_y_average); Serial.print(",");
+        //Serial.print(sfr::imu::gyro_z_average); Serial.println(" deg/s");
     #endif
     uint32_t end = micros();
 }
