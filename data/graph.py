@@ -11,10 +11,9 @@ with open('3ms.csv', newline='') as f:
     reader = csv.reader(f)
     data = list(reader)
 
-    for i in range(len(data)-1):
-        if(i != 0):
-            if data[i-1][1] != data[i][1]:
-                vertical_lines = vertical_lines + [float(data[i][0])]
+    for i in range(len(data)-2):
+        if data[i][1] == "ON" and  data[i+1][1] == "OFF":
+            vertical_lines = vertical_lines + [float(data[i][0])]
       
     for row in data:
         time.append(float(row[0]))
