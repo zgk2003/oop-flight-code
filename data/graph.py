@@ -22,22 +22,13 @@ with open('3ms.csv', newline='') as f:
         mag_y.append(float(row[3]))
         mag_z.append(float(row[4]))
   
-
-
 fig, ax = plt.subplots(figsize=(12, 6))
 
 ax.plot(time, mag_x, label = "X")
 ax.plot(time, mag_y, label = "Y")
 ax.plot(time, mag_z, label = "Z")
 
-
-
-
 ax.vlines(vertical_lines, -.25, 1.5, linestyles='dashed', colors='red')
-
-
-
-
 
 plt.xlabel('Time (ms)')
 plt.title('Magnetorquer Magnetometer Readings 3ms On 3ms Off')
