@@ -7,7 +7,7 @@ mag_y = []
 mag_z = []
 vertical_lines = []
   
-with open('3ms.csv', newline='') as f:
+with open('3000ms.csv', newline='') as f:
     reader = csv.reader(f)
     data = list(reader)
 
