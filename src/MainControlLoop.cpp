@@ -35,7 +35,7 @@ void MainControlLoop::execute()
 
     start_time = millis();
 
-    while(millis()-start_time < 3){
+    while(millis()-start_time < 3000){
         Serial.print(millis());
         Serial.print(",");
         Serial.print("ON");
@@ -55,7 +55,7 @@ void MainControlLoop::execute()
 
     start_time = millis();
 
-    while(millis()-start_time < 3){
+    while(millis()-start_time < 3000){
         Serial.print(millis());
         Serial.print(",");
         Serial.print("OFF");
