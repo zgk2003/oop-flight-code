@@ -442,7 +442,6 @@ namespace constants
         constexpr int r1 = 4700;
         constexpr int r2 = 10000;
 
-
     }
     namespace fault
     {
