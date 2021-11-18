@@ -1,4 +1,5 @@
-#pragma once
+#ifndef _ISENSOR_MONITOR_HPP_
+#define _ISENSOR_MONITOR_HPP_
 
 #include "sfr.hpp"
 
@@ -11,3 +12,5 @@ class ISensorMonitor{
         virtual void transition_to_retry()=0;
         virtual void transition_to_abandon()=0;
 };
+
+#endif
