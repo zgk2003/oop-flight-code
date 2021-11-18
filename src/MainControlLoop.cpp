@@ -51,5 +51,27 @@ void MainControlLoop::execute()
     rockblock_control_task.execute_on_time();
     temperature_control_task.execute_on_time();
 
+/*
+    // imu values
+    // gyro
+    Serial.print("Gyro x: "); Serial.println(sfr::imu::gyro_x_average);
+    Serial.print("Bounds: "); Serial.print(constants::imu::min_gyro_x); Serial.print(" - "); Serial.println(constants::imu::max_gyro_x);
+    // mag
+
+    // imu mode
+    switch(sfr::imu::mode){
+        case sensor_mode_type::normal:
+            Serial.println("IMU is in Normal Mode");
+        case sensor_mode_type::abnormal_init:
+            Serial.println("IMU is in Abnormal Initialization Mode");
+        case sensor_mode_type::abnormal_readings:
+            Serial.println("IMU is in Abnormal Reading Mode");
+        case sensor_mode_type::retry:
+            Serial.println("IMU is in Retry Mode");
+        case sensor_mode_type::abandon:
+            Serial.println("IMU is in Abandon Mode");
+    }
+    */
+
     mission_manager.execute_on_time();
 }
